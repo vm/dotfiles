@@ -1,16 +1,14 @@
-" Plug
+" plug
 call plug#begin('~/.vim/plugged')
 Plug 'Shougo/neosnippet-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'kien/ctrlp.vim'
 Plug 'xolox/vim-misc'
 Plug 'jelera/vim-javascript-syntax'
-"Plug 'xolox/vim-easytags'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'wlangstroth/vim-racket'
-"Plug 'klen/python-mode'
 Plug 'morhetz/gruvbox'
 Plug 'Valloric/YouCompleteMe'
 Plug 'chriskempson/base16-vim'
@@ -22,10 +20,9 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'trusktr/seti.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'whatyouhide/vim-gotham'
-"Plug 'scrooloose/syntastic'
-"Plug 'davidhalter/jedi-vim'
-"Plug 'jeffkreeftmeijer/vim-numbertoggle'
 call plug#end()
+
+let g:tmuxline_preset = 'powerline'
 
 set nocompatible
 set timeoutlen=1000 ttimeoutlen=0
@@ -66,7 +63,9 @@ set wildmode=longest,list,full
 " airline
 set laststatus=2
 let g:airline_powerline_fonts=1
-"let g:airline#extensions#tabline#enabled = 1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:tmuxline_powerline_separators = 0
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -84,10 +83,10 @@ let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " colors
-" set t_Co=256
+set t_Co=256
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
-highlight clear SignColumn " fixes solarized column color
+highlight clear SignColumn
 set background=dark
 let base16colorspace=256
 
@@ -104,10 +103,10 @@ if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-" NERDTree
+" nerdtree
 nmap \e :NERDTreeToggle<CR>
 
-" AutoCommands
+" autocommands
 autocmd BufEnter * lcd %:p:h
 
 " python
