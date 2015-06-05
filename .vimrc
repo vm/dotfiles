@@ -4,20 +4,23 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'kien/ctrlp.vim'
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
+Plug 'jelera/vim-javascript-syntax'
+"Plug 'xolox/vim-easytags'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'wlangstroth/vim-racket'
 "Plug 'klen/python-mode'
+Plug 'morhetz/gruvbox'
 Plug 'Valloric/YouCompleteMe'
 Plug 'chriskempson/base16-vim'
 Plug 'wesgibbs/vim-irblack'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'Shougo/vimshell', { 'rev' : '3787e5' }
-Plug 'trusktr/seti.vim'
 Plug 'edkolev/tmuxline.vim'
+Plug 'trusktr/seti.vim'
+Plug 'w0ng/vim-hybrid'
 Plug 'whatyouhide/vim-gotham'
 "Plug 'scrooloose/syntastic'
 "Plug 'davidhalter/jedi-vim'
@@ -63,7 +66,7 @@ set wildmode=longest,list,full
 " airline
 set laststatus=2
 let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -80,14 +83,12 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
 " colors
-set t_Co=256
-"let g:solarized_termcolors=16
-"set background=dark
-"let g:solarized_visibility="high"
-"let g:solarized_contrast="high"
-"colorscheme solarized
-colorscheme gotham
+" set t_Co=256
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
 highlight clear SignColumn " fixes solarized column color
+set background=dark
+let base16colorspace=256
 
 " search
 set ignorecase
@@ -110,3 +111,6 @@ autocmd BufEnter * lcd %:p:h
 
 " python
 let python_highlight_all = 1
+
+" js
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
