@@ -3,32 +3,23 @@ call plug#begin('~/.vim/plugged')
 Plug 'Shougo/neosnippet-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'kien/ctrlp.vim'
-Plug 'xolox/vim-misc'
+Plug 'digitaltoad/vim-jade'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
-Plug 'scrooloose/nerdtree'
-Plug 'wlangstroth/vim-racket'
-Plug 'morhetz/gruvbox'
 Plug 'Valloric/YouCompleteMe'
-Plug 'chriskempson/base16-vim'
-Plug 'wesgibbs/vim-irblack'
-Plug 'altercation/vim-colors-solarized'
-Plug 'morhetz/gruvbox'
 Plug 'Shougo/vimshell', { 'rev' : '3787e5' }
 Plug 'edkolev/tmuxline.vim'
-Plug 'trusktr/seti.vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'whatyouhide/vim-gotham'
+Plug 'chriskempson/base16-vim'
+Plug 'kennethlove/Birds-of-Paradise-VIM-Theme'
+Plug 'altercation/vim-colors-solarized'
+Plug 'hdima/python-syntax'
 call plug#end()
-
-let g:tmuxline_preset = 'powerline'
 
 set nocompatible
 set timeoutlen=1000 ttimeoutlen=0
 syntax on
 set number
-set ruler
 set noshowmode
 set shell=bash
 set cursorline
@@ -67,15 +58,6 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:tmuxline_powerline_separators = 0
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 " crtlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -83,12 +65,10 @@ let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " colors
-set t_Co=256
-let g:hybrid_use_Xresources = 1
-colorscheme hybrid
+"set t_Co=256
+colorscheme solarized
 highlight clear SignColumn
 set background=dark
-let base16colorspace=256
 
 " search
 set ignorecase
@@ -96,15 +76,6 @@ set incsearch
 set showcmd
 
 filetype plugin indent on
-
-" replace grep with ag
-if executable('ag')
-    set grepprg=ag
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-
-" nerdtree
-nmap \e :NERDTreeToggle<CR>
 
 " autocommands
 autocmd BufEnter * lcd %:p:h
