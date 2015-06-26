@@ -2,18 +2,20 @@
 call plug#begin('~/.vim/plugged')
 Plug 'Shougo/neosnippet-snippets'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim'
 Plug 'digitaltoad/vim-jade'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'Valloric/YouCompleteMe'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/nerdtree'
 Plug 'Shougo/vimshell', { 'rev' : '3787e5' }
 Plug 'edkolev/tmuxline.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'kennethlove/Birds-of-Paradise-VIM-Theme'
 Plug 'altercation/vim-colors-solarized'
 Plug 'hdima/python-syntax'
+Plug 'Pjiangmiao/auto-pairs'
 call plug#end()
 
 set nocompatible
@@ -27,13 +29,11 @@ set nobackup
 set colorcolumn=101
 
 " indent
-set autoindent
-set shiftround
 set preserveindent
-set shiftwidth=4
-set tabstop=4
-set expandtab
 set showmatch
+set expandtab
+set autoindent
+set smartindent
 
 " square maximum awesome
 set autoread
@@ -41,7 +41,6 @@ set backspace=2
 set clipboard=unnamed
 set directory-=.
 set encoding=utf-8
-set expandtab
 set list
 set listchars=tab:▸\ ,trail:▫
 set scrolloff=3
@@ -59,16 +58,13 @@ let g:airline_right_sep=''
 let g:tmuxline_powerline_separators = 0
 
 " crtlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " colors
 "set t_Co=256
 colorscheme solarized
 highlight clear SignColumn
-set background=dark
+set background=light
 
 " search
 set ignorecase
@@ -85,3 +81,11 @@ let python_highlight_all = 1
 
 " js
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+
+
+" mappings
+let mapleader = ','
+nnoremap <leader>a :Ag<space>
+nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>t :CtrlP<CR>
+nnoremap <leader>g :GitGutterToggle<CR>
