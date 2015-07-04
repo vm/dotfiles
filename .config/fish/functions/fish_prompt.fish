@@ -10,9 +10,8 @@ function fish_prompt
     printf '@'
 
     set_color magenta
-    printf '%s' (hostname|cut -d . -f 1)
+    printf '%s ' (hostname|cut -d . -f 1)
     set_color normal
-    printf ' in '
 
     set_color yellow
     printf '%s' (prompt_pwd)

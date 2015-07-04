@@ -5,11 +5,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim'
 Plug 'digitaltoad/vim-jade'
-Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/yajs.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'Valloric/YouCompleteMe'
-Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/vimshell', { 'rev' : '3787e5' }
 Plug 'edkolev/tmuxline.vim'
@@ -82,10 +81,8 @@ let python_highlight_all = 1
 " js
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 
-
 " mappings
 let mapleader = ','
-nnoremap <leader>a :Ag<space>
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>t :CtrlP<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
