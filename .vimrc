@@ -12,14 +12,17 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/vimshell', { 'rev' : '3787e5' }
 Plug 'edkolev/tmuxline.vim'
+Plug 'wesgibbs/vim-irblack'
+Plug 'whatyouhide/vim-gotham'
+Plug 'w0ng/vim-hybrid'
 Plug 'altercation/vim-colors-solarized'
 Plug 'hdima/python-syntax'
-Plug 'Pjiangmiao/auto-pairs'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
+syntax on
 set nocompatible
 set timeoutlen=1000 ttimeoutlen=0
-syntax on
 set number
 set noshowmode
 set shell=bash
@@ -27,14 +30,12 @@ set cursorline
 set nobackup
 set colorcolumn=101
 
-" indent
 set preserveindent
 set showmatch
 set expandtab
 set autoindent
 set smartindent
 
-" square maximum awesome
 set autoread
 set backspace=2
 set clipboard=unnamed
@@ -49,39 +50,29 @@ set smartcase
 set wildmenu
 set wildmode=longest,list,full
 
-" airline
 set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:tmuxline_powerline_separators = 0
 
-" crtlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
-" colors
-"set t_Co=256
-colorscheme solarized
+colorscheme gruvbox
 highlight clear SignColumn
-set background=light
-
-" search
+set background=dark
 set ignorecase
 set incsearch
 set showcmd
 
 filetype plugin indent on
 
-" autocommands
 autocmd BufEnter * lcd %:p:h
 
-" python
 let python_highlight_all = 1
 
-" js
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 
-" mappings
 let mapleader = ','
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>t :CtrlP<CR>
