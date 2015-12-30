@@ -1,10 +1,8 @@
 . /Users/vignesh/.config/fish/virtual.fish
-# optional plugins
+
 . /Users/vignesh/.config/fish/auto_activation.fish
 . /Users/vignesh/.config/fish/global_requirements.fish
 . /Users/vignesh/.config/fish/projects.fish
-# Base16 Shell
-# eval sh $HOME/.config/base16-shell/base16-ocean.dark.sh
 
 set -l base03  "--bold black"
 set -l base02  "black"
@@ -46,15 +44,15 @@ function myfunc --on-event virtualenv_did_activate
 end
 
 function fish_greeting
-    archey -c
 end
+
+alias git hub
 
 set -gx PATH $PATH /Applications/Racket/bin
 set -gx PATH $PATH /usr/local/sbin
 set -gx PATH $PATH /usr/local/bin
 set -gx PATH $PATH ~/Downloads/arcanist/bin
 set -gx PATH $PATH /Applications/Postgres.app/Contents/Versions/9.4/bin
+
 # OPAM configuration
 . /Users/vignesh/.opam/opam-init/init.fish > /dev/null 2> /dev/null or true
-
-set -gx zen ~/projects/zentreefish
