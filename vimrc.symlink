@@ -1,32 +1,28 @@
 call plug#begin('~/.vim/plugged')
-Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/vimshell', { 'rev' : '3787e5' }
-Plug 'tpope/vim-fugitive'
-Plug 'kien/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim'
+Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
-"Plug 'bling/vim-airline'
-"Plug 'edkolev/tmuxline.vim'
-Plug 'altercation/vim-colors-solarized'
-Plug 'trusktr/seti.vim'
-Plug 'vim-scripts/twilight'
-Plug 'jaywilliams/vim-vwilight'
-Plug 'chriskempson/base16-vim'
-Plug 'rust-lang/rust.vim'
+
+Plug 'elixir-lang/vim-elixir'
 Plug 'hdima/python-syntax'
+Plug 'kchmck/vim-coffee-script'
+Plug 'keith/swift.vim'
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
+Plug 'rust-lang/rust.vim'
+
+Plug 'jaywilliams/vim-vwilight'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 syntax on
-set timeoutlen=1000 ttimeoutlen=0
+set timeoutlen=1000 ttimeoutlen=-1
 set number
-"set noshowmode
 set shell=bash
 set cursorline
 set nobackup
-set colorcolumn=101
+set colorcolumn=80
 
 colorscheme vwilight
 
@@ -58,21 +54,19 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 filetype plugin indent on
 
-let python_highlight_all = 1
-let g:jedi#use_splits_not_buffers = "top"
-let g:jsx_ext_required = 0
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let python_highlight_all=1
+let g:ctrlp_custom_ignore='node_modules\|DS_Store\|git'
+let g:deoplete#enable_at_startup=1
 
 function! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
+    let l=line(".")
+    let c=col(".")
     %s/\s\+$//e
     call cursor(l, c)
 endfun
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 
-let mapleader = ','
+let mapleader=','
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>t :CtrlP<CR>
