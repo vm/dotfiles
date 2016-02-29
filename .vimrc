@@ -55,8 +55,15 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 filetype plugin indent on
 
 let python_highlight_all=1
+
 let g:ctrlp_custom_ignore='node_modules\|DS_Store\|git'
+
 let g:deoplete#enable_at_startup=1
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+endfunction
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"imap <expr><TAB> <SID>neosnippet_complete()
 
 function! <SID>StripTrailingWhitespaces()
     let l=line(".")
