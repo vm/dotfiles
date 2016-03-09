@@ -54,9 +54,3 @@ set -gx PATH $PATH /usr/local/sbin
 set -gx PATH $PATH /usr/local/bin
 set -gx PATH $PATH ~/Downloads/arcanist/bin
 set -gx PATH $PATH /Applications/Postgres.app/Contents/Versions/9.4/bin
-
-# OPAM configuration
-. /Users/vignesh/.opam/opam-init/init.fish > /dev/null 2> /dev/null or true
-set fisher_home ~/.local/share/fisherman
-set fisher_config ~/.config/fisherman
-source $fisher_home/config.fish
