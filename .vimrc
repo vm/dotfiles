@@ -3,15 +3,16 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/deoplete.nvim'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+" Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'tpope/vim-commentary'
 
-Plug 'elixir-lang/vim-elixir'
 Plug 'hdima/python-syntax'
-Plug 'kchmck/vim-coffee-script'
-Plug 'keith/swift.vim'
+Plug 'rust-lang/rust.vim'
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
-Plug 'rust-lang/rust.vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'kchmck/vim-coffee-script'
+Plug 'keith/swift.vim'
 
 Plug 'jaywilliams/vim-vwilight'
 Plug 'altercation/vim-colors-solarized'
@@ -34,7 +35,6 @@ set directory-=.
 set encoding=utf-8
 
 set preserveindent
-set showmatch
 set expandtab
 set autoindent
 set shiftwidth=2
@@ -46,10 +46,10 @@ set incsearch
 set wildmenu
 set wildmode=longest,list,full
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+set showmatch
 
-let python_highlight_all=1
-let g:ctrlp_custom_ignore='node_modules\|DS_Store\|git'
-let g:deoplete#enable_at_startup=1
+set list
+set listchars=tab:▸\ ,trail:▫
 
 function! <SID>StripTrailingWhitespaces()
     let l=line(".")
@@ -59,7 +59,11 @@ function! <SID>StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
+let python_highlight_all=1
+let g:ctrlp_custom_ignore='node_modules\|DS_Store\|git'
+let g:deoplete#enable_at_startup=1
+
 let mapleader=','
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>t :CtrlP<CR>
-let g:NumberToggleTrigger="<leader>n"
+" let g:NumberToggleTrigger='<leader>n'
