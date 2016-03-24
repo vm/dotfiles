@@ -1,9 +1,8 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config./nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/deoplete.nvim'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
-" Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-commentary'
 
 Plug 'hdima/python-syntax'
@@ -22,7 +21,7 @@ syntax on
 colorscheme vwilight
 
 set number
-set cursorline
+"set cursorline
 set showcmd
 set colorcolumn=80
 
@@ -66,4 +65,3 @@ let g:deoplete#enable_at_startup=1
 let mapleader=','
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>t :CtrlP<CR>
-" let g:NumberToggleTrigger='<leader>n'
