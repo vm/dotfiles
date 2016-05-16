@@ -11,17 +11,22 @@ Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'kchmck/vim-coffee-script'
-Plug 'keith/swift.vim'
+Plug 'wavded/vim-stylus'
 
 Plug 'jaywilliams/vim-vwilight'
 Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
+Plug 'mhartington/oceanic-next'
+Plug 'chriskempson/base16-vim'
+Plug 'whatyouhide/vim-gotham'
 call plug#end()
 
-syntax on
-colorscheme vwilight
+syntax enable
+
+colorscheme gotham
+set background=dark
 
 set number
-"set cursorline
 set showcmd
 set colorcolumn=80
 
@@ -51,8 +56,8 @@ set list
 set listchars=tab:▸\ ,trail:▫
 
 function! <SID>StripTrailingWhitespaces()
-    let l=line(".")
-    let c=col(".")
+    let l=line('.')
+    let c=col('.')
     %s/\s\+$//e
     call cursor(l, c)
 endfun
@@ -65,3 +70,7 @@ let g:deoplete#enable_at_startup=1
 let mapleader=','
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>t :CtrlP<CR>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>

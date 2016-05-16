@@ -47,9 +47,10 @@ function fish_greeting
 end
 
 alias git hub
-alias vim nano
+alias vim nvim
 
 set -gx EDITOR nvim
+set -gx PYTHONDONTWRITEBYTECODE 1
 set -gx PATH $PATH /Applications/Racket/bin
 set -gx PATH $PATH /usr/local/sbin
 set -gx PATH $PATH /usr/local/bin
