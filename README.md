@@ -1,3 +1,0 @@
-## Dotfiles
-
-![preview](./preview.png)
