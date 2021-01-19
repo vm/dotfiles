@@ -7,11 +7,11 @@ Plug 'tpope/vim-commentary'
 
 Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
-Plug 'othree/yajs.vim'
-Plug 'othree/es.next.syntax.vim'
 Plug 'elixir-lang/vim-elixir'
-Plug 'kchmck/vim-coffee-script'
-Plug 'wavded/vim-stylus'
+Plug 'pangloss/vim-javascript'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 Plug 'jaywilliams/vim-vwilight'
 Plug 'altercation/vim-colors-solarized'

@@ -1,8 +1,4 @@
-. /Users/vignesh/.config/fish/virtual.fish
-
-. /Users/vignesh/.config/fish/auto_activation.fish
-. /Users/vignesh/.config/fish/global_requirements.fish
-. /Users/vignesh/.config/fish/projects.fish
+eval (python -m virtualfish)
 
 set -l base03  "--bold black"
 set -l base02  "black"
@@ -43,16 +39,28 @@ function myfunc --on-event virtualenv_did_activate
     set -gx APP_SETTINGS config.DevelopmentConfig
 end
 
+function nvm
+   bass source (brew --prefix nvm)/nvm.sh --no-use ';' nvm $argv
+end
+
 function fish_greeting
 end
 
 alias git hub
 alias vim nvim
+alias python python3
+alias c clear
+alias aws "docker run --rm -it amazon/aws-cli"
 
 set -gx EDITOR nvim
 set -gx PYTHONDONTWRITEBYTECODE 1
+set -gx GOPATH ~/Projects/go
+set -gx NVM_DIR $HOME/.nvm
 set -gx PATH $PATH /Applications/Racket/bin
 set -gx PATH $PATH /usr/local/sbin
 set -gx PATH $PATH /usr/local/bin
 set -gx PATH $PATH ~/Downloads/arcanist/bin
 set -gx PATH $PATH /Applications/Postgres.app/Contents/Versions/9.4/bin
+set -gx PATH $PATH $HOME/.cargo/bin
+
+nvm use default --silent
