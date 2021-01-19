@@ -46,10 +46,8 @@ end
 function fish_greeting
 end
 
-alias git hub
 alias vim nvim
 alias python python3
-alias c clear
 alias aws "docker run --rm -it amazon/aws-cli"
 
 set -gx EDITOR nvim
@@ -64,3 +62,6 @@ set -gx PATH $PATH /Applications/Postgres.app/Contents/Versions/9.4/bin
 set -gx PATH $PATH $HOME/.cargo/bin
 
 nvm use default --silent
+
+set -g default-command /usr/local/bin/fish
+set -g default-shell /usr/local/bin/fish

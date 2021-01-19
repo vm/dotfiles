@@ -1,7 +1,8 @@
 call plug#begin('~/.config./nvim/plugged')
 Plug 'airblade/vim-gitgutter'
-Plug 'Shougo/deoplete.nvim'
-Plug 'kien/ctrlp.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 
@@ -69,7 +70,7 @@ let g:deoplete#enable_at_startup=1
 
 let mapleader=','
 nnoremap <leader>d :NERDTreeToggle<CR>
-nnoremap <leader>t :CtrlP<CR>
+nnoremap <leader>t :GFiles<CR>
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
