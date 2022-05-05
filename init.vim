@@ -1,7 +1,7 @@
 call plug#begin('~/.config./nvim/plugged')
-Plug 'airblade/vim-gitgutter'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'mhinz/vim-signify'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
@@ -22,11 +22,11 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
 Plug 'elixir-lang/vim-elixir'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'othree/yajs.vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 call plug#end()
@@ -63,26 +63,20 @@ let g:python3_host_prog = '/usr/bin/python3'
 
 let mapleader=','
 
-nnoremap <leader>t <cmd>Telescope find_files<cr>
+nnoremap <leader>t :GFiles<cr>
 
 lua << EOF
-local telescope = require('telescope')
-telescope.setup{
-  defaults = {
-    file_ignore_patterns = {
-      "node_modules" 
-    }
-  }
-}
-telescope.load_extension('fzf')
-
 require("trouble").setup {}
 
 local lsp = require('lsp-zero')
 
 lsp.preset('recommended')
 lsp.setup()
-
+lsp.configure('tsserver', {
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end
+})
 
 local null_ls = require("null-ls")
 null_ls.setup({
