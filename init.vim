@@ -66,19 +66,19 @@ let mapleader=','
 nnoremap <leader>t :GFiles<cr>
 
 lua << EOF
-require("trouble").setup {}
+require('trouble').setup {}
 
 local lsp = require('lsp-zero')
-
-lsp.preset('recommended')
+lsp.preset('manual-setup')
 lsp.setup()
 lsp.configure('tsserver', {
   on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
   end
 })
 
-local null_ls = require("null-ls")
+local null_ls = require('null-ls')
 null_ls.setup({
     sources = {
         null_ls.builtins.diagnostics.eslint,
