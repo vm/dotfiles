@@ -3,6 +3,7 @@ Plug 'mhinz/vim-signify'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-sandwich'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'hrsh7th/nvim-cmp'
@@ -101,3 +102,13 @@ EOF
 set completeopt=menu,menuone,noselect
 nnoremap <leader>e <cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>r <cmd>TroubleToggle lsp_references<cr>
+
+let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
+let g:sandwich#recipes += [
+      \   {
+      \     'external': ['it', 'at'],
+      \     'noremap' : 1,
+      \     'filetype': ['html'],
+      \     'input'   : ['t'],
+      \   },
+      \ ]
