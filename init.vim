@@ -32,6 +32,8 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 call plug#end()
 
+set termguicolors
+let g:catppuccin_flavour = 'mocha'
 colorscheme catppuccin
 
 set number
