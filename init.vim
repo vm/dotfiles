@@ -19,6 +19,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'tpope/vim-fugitive'
+Plug 'takac/vim-hardtime'
 
 Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
@@ -105,6 +107,16 @@ set completeopt=menu,menuone,noselect
 nnoremap <leader>e <cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>r <cmd>TroubleToggle lsp_references<cr>
 
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
 let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
 let g:sandwich#recipes += [
       \   {
@@ -114,3 +126,5 @@ let g:sandwich#recipes += [
       \     'input'   : ['t'],
       \   },
       \ ]
+
+let g:hardtime_default_on = 1
