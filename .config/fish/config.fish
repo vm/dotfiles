@@ -12,3 +12,11 @@ set -gx PATH $PATH /usr/local/bin
 set -gx PATH $PATH $HOME/.cargo/bin
 set -gx PATH $PATH $HOME/.nvm
 set -gx PATH $PATH /opt/homebrew/bin
+
+function __check_nvm --on-variable PWD --description 'Do nvm stuff'
+  if test -f .nvmrc
+    nvm use
+  end
+end
+
+__check_nvm
