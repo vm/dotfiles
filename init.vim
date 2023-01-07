@@ -20,7 +20,7 @@ Plug 'folke/trouble.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-fugitive'
-Plug 'takac/vim-hardtime'
+" Plug 'takac/vim-hardtime'
 
 Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
@@ -30,6 +30,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'othree/yajs.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'iden3/vim-circom-syntax'
 
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 call plug#end()
@@ -76,19 +77,12 @@ require('trouble').setup {}
 local lsp = require('lsp-zero')
 lsp.preset('manual-setup')
 lsp.setup()
-lsp.configure('tsserver', {
-  on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-  end
-})
 
 local null_ls = require('null-ls')
 null_ls.setup({
     sources = {
         null_ls.builtins.diagnostics.eslint,
         null_ls.builtins.code_actions.eslint,
-        null_ls.builtins.formatting.prettier
     },
     on_attach = function(client)
         if client.resolved_capabilities.document_formatting then
